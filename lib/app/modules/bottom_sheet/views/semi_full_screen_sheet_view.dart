@@ -48,15 +48,15 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
           double _percent = lerpDouble(
               (-minChildSize), 1, notification.extent * 1 / maxChildSize)!;
           //double _percent = lerpDouble(-0.1, 1.25, notification.extent)!;
-          var value = lerpDouble(0, finalWidthSize, _percent);
+         // var value = lerpDouble(0, finalWidthSize, _percent);
 
-
-         // var value=finalWidthSize*_percent;
+          // percent from 0 to 1
+         var value=finalWidthSize*_percent;
 
           print('scrollvalue ${_percent} ${value}');
 
           setState(() {
-            widthBottomSheet = value ?? 0 ;
+            widthBottomSheet = value ;
           });
 
 
