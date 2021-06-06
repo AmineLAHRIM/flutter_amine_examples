@@ -1,0 +1,19 @@
+{
+  "id": 40,
+  "university_info": {
+    "id": 1,
+    "name": "university 1",
+    "photo": "ddd"
+  },
+  "created_at": "06/05/2021 23:10:56",
+  "updated_at": "25/05/2021 15:48:03",
+  "phone_number": "ddd",
+  "profile_picture": "dd",
+  "profile_picture_thumb": "ddd",
+  "degree": "dd",
+  "first_name": "Amine",
+  "last_name": "LAHRIM",
+  "email": "amine.la.hrimdev@gmail.com",
+  "invitation_sent": "ddd",
+  "invitation_received": "ddd"
+}
