@@ -43,7 +43,7 @@ class _ExtendFullScreenSheetViewState extends State<ExtendFullScreenSheetView> {
       child: NotificationListener<DraggableScrollableNotification>(
         onNotification: (notification) {
           //2
-          final percentOfExpand = 0.7;
+          final percentOfExpand = 0.9;
 
           if (notification.extent >= percentOfExpand) {
 

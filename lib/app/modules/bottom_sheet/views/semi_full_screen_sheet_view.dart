@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -9,16 +8,18 @@ class SemiFullScreenSheetView extends StatefulWidget {
   final BuildContext context;
 
   @override
-  _SemiFullScreenSheetViewState createState() => _SemiFullScreenSheetViewState();
+  _SemiFullScreenSheetViewState createState() =>
+      _SemiFullScreenSheetViewState();
 }
 
 class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
   var widthBottomSheet = 100.0;
   var finalWidthSize = 100.0;
-  final initialChildSize = 0.5;
+  final initialChildSize = 0.6;
+
   //1
   final maxChildSize = 0.8;
-  final minChildSize = 0.3;
+  final minChildSize = 0.4;
 
   var isInit = true;
 
@@ -28,12 +29,11 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
     super.didChangeDependencies();
     //1
     if (isInit) {
-      finalWidthSize=MediaQuery.of(context).size.width;
+      finalWidthSize = MediaQuery.of(context).size.width;
       widthBottomSheet = initialChildSize * finalWidthSize;
       isInit = false;
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +45,18 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
       child: NotificationListener<DraggableScrollableNotification>(
         onNotification: (notification) {
           //1
-          double _percent = lerpDouble(
-              (-minChildSize), 1, notification.extent * 1 / maxChildSize)!;
-          //double _percent = lerpDouble(-0.1, 1.25, notification.extent)!;
-         // var value = lerpDouble(0, finalWidthSize, _percent);
+          /*double _percent = lerpDouble(
+              (-minChildSize), 1, notification.extent * 1 / maxChildSize)!;*/
+          double _percent = lerpDouble(-(minChildSize*(1+(0.6/0.605))), 1, notification.extent/maxChildSize)!;
+          //var value = lerpDouble(0, finalWidthSize, _percent);
 
-          // percent from 0 to 1
-         var value=finalWidthSize*_percent;
+          var value = finalWidthSize * _percent;
 
           print('scrollvalue ${_percent} ${value}');
 
           setState(() {
             widthBottomSheet = value ;
           });
-
 
           return false;
         },
@@ -85,7 +83,8 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
                         color: Colors.amberAccent,
                         width: widthBottomSheet,
                       ),
-                      Text('${(widthBottomSheet/finalWidthSize).toStringAsFixed(2)}'),
+                      Text(
+                          '${(widthBottomSheet / finalWidthSize).toStringAsFixed(2)}'),
                       SizedBox(
                         height: 16,
                       ),
