@@ -15,11 +15,13 @@ class SemiFullScreenSheetView extends StatefulWidget {
 class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
   var widthBottomSheet = 100.0;
   var finalWidthSize = 100.0;
-  final initialChildSize = 0.6;
+  final initialChildSize = 0.5;
 
   //1
   final maxChildSize = 0.8;
   final minChildSize = 0.4;
+
+  late Tween<double> _tween;
 
   var isInit = true;
 
@@ -47,15 +49,23 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
           //1
           /*double _percent = lerpDouble(
               (-minChildSize), 1, notification.extent * 1 / maxChildSize)!;*/
-          double _percent = lerpDouble(-(minChildSize*(1+(0.6/0.605))), 1, notification.extent/maxChildSize)!;
-          //var value = lerpDouble(0, finalWidthSize, _percent);
+          //double _percent = lerpDouble(-(minChildSize*(1+(0.6/0.605))), 1, notification.extent/maxChildSize)!;
 
+          double _percent = lerpDouble((minChildSize*maxChildSize)*(-(minChildSize + 1 - maxChildSize)), 1,
+              notification.extent / (maxChildSize))!;
+          //_percent8= _percent8.clamp(minChildSize, 1);
+          //print('scrollvalue ${_percent}');
+
+          /*print(
+              'scrollvalue percent=${_percent} | ${_percent1} | ${_percent2} | ${_percent3} | ${_percent4} | ${_percent5} | ${_percent6} | ${_percent7} | ${_percent8} | ${_percent9} | ${_percent10}');
+         */ //_percent=_percent.clamp(0.4, 1);
+          //var value = lerpDouble(0, finalWidthSize, _percent);
           var value = finalWidthSize * _percent;
 
           print('scrollvalue ${_percent} ${value}');
 
           setState(() {
-            widthBottomSheet = value ;
+            widthBottomSheet = value;
           });
 
           return false;
