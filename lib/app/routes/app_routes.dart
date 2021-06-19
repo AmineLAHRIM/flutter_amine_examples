@@ -9,6 +9,11 @@ abstract class Routes {
   static const SLIVER_IMAGE = _Paths.SLIVER_IMAGE;
   static const BOTTOM_SHEET = _Paths.BOTTOM_SHEET;
   static const SEMI_FULL_SCREEN_SHEET = _Paths.SEMI_FULL_SCREEN_SHEET;
+  static const STAGGERED_ANIMATION = _Paths.STAGGERED_ANIMATION;
+  static const CUSTOM_ANIMATION =
+      _Paths.STAGGERED_ANIMATION + _Paths.CUSTOM_ANIMATION;
+  static const TIMELINE_ANIMATION =
+      _Paths.STAGGERED_ANIMATION + _Paths.TIMELINE_ANIMATION;
 }
 
 abstract class _Paths {
@@ -17,4 +22,8 @@ abstract class _Paths {
   static const SLIVER_IMAGE = '/sliver-image';
   static const BOTTOM_SHEET = '/bottom-sheet';
   static const SEMI_FULL_SCREEN_SHEET = '/semi-full-screen-sheet';
+  static const STAGGERED_ANIMATION = '/staggered-animation';
+  static const CUSTOM_ANIMATION = '/custom-animation';
+  static const TIMELINE_ANIMATINO = '/timeline-animatino';
+  static const TIMELINE_ANIMATION = '/timeline-animation';
 }

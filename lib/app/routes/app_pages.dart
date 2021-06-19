@@ -8,6 +8,12 @@ import 'package:flutter_amine_examples/app/modules/sliver/bindings/sliver_bindin
 import 'package:flutter_amine_examples/app/modules/sliver/views/sliver_view.dart';
 import 'package:flutter_amine_examples/app/modules/sliver_image/bindings/sliver_image_binding.dart';
 import 'package:flutter_amine_examples/app/modules/sliver_image/views/sliver_image_view.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/bindings/staggered_animation_binding.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/custom_animation/bindings/custom_animation_binding.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/custom_animation/views/custom_animation_view.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/timeline_animation/bindings/timeline_animation_binding.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/timeline_animation/views/timeline_animation_view.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/views/staggered_animation_view.dart';
 
 part 'app_routes.dart';
 
@@ -36,6 +42,23 @@ class AppPages {
       name: _Paths.BOTTOM_SHEET,
       page: () => BottomSheetView(),
       binding: BottomSheetBinding(),
+    ),
+    GetPage(
+      name: _Paths.STAGGERED_ANIMATION,
+      page: () => StaggeredAnimationView(),
+      binding: StaggeredAnimationBinding(),
+      children: [
+        GetPage(
+          name: _Paths.CUSTOM_ANIMATION,
+          page: () => CustomAnimationView(),
+          binding: CustomAnimationBinding(),
+        ),
+        GetPage(
+          name: _Paths.TIMELINE_ANIMATION,
+          page: () => TimelineAnimationView(),
+          binding: TimelineAnimationBinding(),
+        ),
+      ],
     ),
   ];
 }

@@ -7,7 +7,6 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetResponsiveView<HomeController> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Examples'),
@@ -50,6 +49,15 @@ class HomeView extends GetResponsiveView<HomeController> {
                     },
                     child: Text(
                       'BottomSheets',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.toNamed(Routes.STAGGERED_ANIMATION);
+                    },
+                    child: Text(
+                      'Staggerd Animation',
                       textAlign: TextAlign.center,
                     ),
                   )
