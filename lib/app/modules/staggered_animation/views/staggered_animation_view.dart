@@ -43,6 +43,14 @@ class StaggeredAnimationView extends GetView<StaggeredAnimationController> {
                     'TimeLine Animation',
                     textAlign: TextAlign.center,
                   ),
+                ),ElevatedButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.AUTH_STAGGERED_ANIMATION);
+                  },
+                  child: Text(
+                    'Auth Staggered Animation',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),

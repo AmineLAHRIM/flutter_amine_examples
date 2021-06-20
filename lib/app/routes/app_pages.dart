@@ -8,6 +8,8 @@ import 'package:flutter_amine_examples/app/modules/sliver/bindings/sliver_bindin
 import 'package:flutter_amine_examples/app/modules/sliver/views/sliver_view.dart';
 import 'package:flutter_amine_examples/app/modules/sliver_image/bindings/sliver_image_binding.dart';
 import 'package:flutter_amine_examples/app/modules/sliver_image/views/sliver_image_view.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/auth_staggered_animation/bindings/auth_staggered_animation_binding.dart';
+import 'package:flutter_amine_examples/app/modules/staggered_animation/auth_staggered_animation/views/auth_staggered_animation_view.dart';
 import 'package:flutter_amine_examples/app/modules/staggered_animation/bindings/staggered_animation_binding.dart';
 import 'package:flutter_amine_examples/app/modules/staggered_animation/custom_animation/bindings/custom_animation_binding.dart';
 import 'package:flutter_amine_examples/app/modules/staggered_animation/custom_animation/views/custom_animation_view.dart';
@@ -57,6 +59,11 @@ class AppPages {
           name: _Paths.TIMELINE_ANIMATION,
           page: () => TimelineAnimationView(),
           binding: TimelineAnimationBinding(),
+        ),
+        GetPage(
+          name: _Paths.AUTH_STAGGERED_ANIMATION,
+          page: () => AuthStaggeredAnimationView(),
+          binding: AuthStaggeredAnimationBinding(),
         ),
       ],
     ),

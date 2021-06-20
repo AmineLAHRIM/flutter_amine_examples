@@ -14,6 +14,8 @@ abstract class Routes {
       _Paths.STAGGERED_ANIMATION + _Paths.CUSTOM_ANIMATION;
   static const TIMELINE_ANIMATION =
       _Paths.STAGGERED_ANIMATION + _Paths.TIMELINE_ANIMATION;
+  static const AUTH_STAGGERED_ANIMATION =
+      _Paths.STAGGERED_ANIMATION + _Paths.AUTH_STAGGERED_ANIMATION;
 }
 
 abstract class _Paths {
@@ -26,4 +28,5 @@ abstract class _Paths {
   static const CUSTOM_ANIMATION = '/custom-animation';
   static const TIMELINE_ANIMATINO = '/timeline-animatino';
   static const TIMELINE_ANIMATION = '/timeline-animation';
+  static const AUTH_STAGGERED_ANIMATION = '/auth-staggered-animation';
 }
