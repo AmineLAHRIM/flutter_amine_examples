@@ -8,8 +8,7 @@ class SemiFullScreenSheetView extends StatefulWidget {
   final BuildContext context;
 
   @override
-  _SemiFullScreenSheetViewState createState() =>
-      _SemiFullScreenSheetViewState();
+  _SemiFullScreenSheetViewState createState() => _SemiFullScreenSheetViewState();
 }
 
 class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
@@ -17,9 +16,13 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
   var finalWidthSize = 100.0;
   final initialChildSize = 0.5;
 
+  /*
+  * final double range = upperBound - lowerBound;
+      final double remainingFraction = range.isFinite ? (target - _value).abs() / range : 1.0;
+  * */
   //1
-  final maxChildSize = 0.8;
-  final minChildSize = 0.4;
+  final upperBound = 0.8;
+  final lowerBound = 0.4;
 
   late Tween<double> _tween;
 
@@ -46,23 +49,19 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
       ),
       child: NotificationListener<DraggableScrollableNotification>(
         onNotification: (notification) {
-          //1
-          /*double _percent = lerpDouble(
-              (-minChildSize), 1, notification.extent * 1 / maxChildSize)!;*/
-          //double _percent = lerpDouble(-(minChildSize*(1+(0.6/0.605))), 1, notification.extent/maxChildSize)!;
+          //method 1
+          double _percent = lerpDouble((lowerBound * upperBound) * (-(lowerBound + 1 - upperBound)), 1, notification.extent / (upperBound))!;
 
-          double _percent = lerpDouble((minChildSize*maxChildSize)*(-(minChildSize + 1 - maxChildSize)), 1,
-              notification.extent / (maxChildSize))!;
-          //_percent8= _percent8.clamp(minChildSize, 1);
-          //print('scrollvalue ${_percent}');
+          // animaitionController method
+          final double range = upperBound - lowerBound;
+          // here traget of animation
+          final double target = upperBound;
+          final double _value = notification.extent;
+          final double remainingFraction = 1-(range.isFinite ? (target - _value).abs() / range : 1.0);
 
-          /*print(
-              'scrollvalue percent=${_percent} | ${_percent1} | ${_percent2} | ${_percent3} | ${_percent4} | ${_percent5} | ${_percent6} | ${_percent7} | ${_percent8} | ${_percent9} | ${_percent10}');
-         */ //_percent=_percent.clamp(0.4, 1);
-          //var value = lerpDouble(0, finalWidthSize, _percent);
           var value = finalWidthSize * _percent;
 
-          print('scrollvalue ${_percent} ${value}');
+          print('scrollvalue ${_percent} | ${remainingFraction} ${value}');
 
           setState(() {
             widthBottomSheet = value;
@@ -73,8 +72,8 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
         child: DraggableScrollableSheet(
           expand: false,
           initialChildSize: initialChildSize,
-          minChildSize: minChildSize,
-          maxChildSize: maxChildSize,
+          minChildSize: lowerBound,
+          maxChildSize: upperBound,
           builder: (context, scrollController) {
             return ClipRRect(
               borderRadius: BorderRadius.only(
@@ -93,8 +92,7 @@ class _SemiFullScreenSheetViewState extends State<SemiFullScreenSheetView> {
                         color: Colors.amberAccent,
                         width: widthBottomSheet,
                       ),
-                      Text(
-                          '${(widthBottomSheet / finalWidthSize).toStringAsFixed(2)}'),
+                      Text('${(widthBottomSheet / finalWidthSize).toStringAsFixed(2)}'),
                       SizedBox(
                         height: 16,
                       ),

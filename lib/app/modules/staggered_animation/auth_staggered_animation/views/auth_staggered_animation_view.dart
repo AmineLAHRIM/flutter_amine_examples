@@ -147,7 +147,7 @@ class _AuthStaggeredAnimationViewState extends State<AuthStaggeredAnimationView>
           child: CustomAnimation<TimelineValue<AniProps>>(
               tween: _tween,
               control: _customAnimationControl,
-              //curve: Curves.ease,
+              curve: Curves.ease,
               //developerMode: true,
               duration: _tween.duration,
               animationStatusListener: (status) {},
